@@ -36,7 +36,13 @@ public class Conection_JDBC {
         try {
             Conexion = DriverManager.getConnection(url, user, password);
             statement = Conexion.createStatement(); 
-            statement.executeUpdate("INSERT INTO `cliente` (`Id_Usuario`, `Nombre_Cliente`, `Telefono_Cliente`, `Email_Cliente`, `Proyecto_Cotizar`) VALUES ('1234567', 'Alexandra Maria Cano', '1234567891', 'alejandramaria@gmail.com', 'Rosales')");
+            statement.executeUpdate("INSERT INTO `cliente` (`Id_Usuario`, `Nombre_Cliente`, `Telefono_Cliente`, `Email_Cliente`, `Proyecto_Cotizar`) VALUES ('1234569', 'Andres Felipe Salamanca sanchez', '1061555222', 'andresfelipe@gmail.com', 'Rosales')");
+            rst = statement.executeQuery("SELECT * FROM cliente");
+            rst.next();
+            do {
+              System.out.println(rst.getInt("Id_Usuario")+" | " +rst.getString("Nombre_Cliente")+" | " +rst.getString("Telefono_Cliente")+" | " +rst.getString("Email_Cliente"));
+            }while (rst.next());
+          
             
         } catch (SQLException ex) {
             Logger.getLogger(Conection_JDBC.class.getName()).log(Level.SEVERE, null, ex);
