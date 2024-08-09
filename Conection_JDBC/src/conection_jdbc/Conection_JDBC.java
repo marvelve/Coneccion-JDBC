@@ -36,7 +36,7 @@ public class Conection_JDBC {
         try {
             Conexion = DriverManager.getConnection(url, user, password);
             statement = Conexion.createStatement(); 
-            statement.executeUpdate("INSERT INTO `cliente` (`Id_Usuario`, `Nombre_Cliente`, `Telefono_Cliente`, `Email_Cliente`, `Proyecto_Cotizar`) VALUES ('1234569', 'Andres Felipe Salamanca sanchez', '1061555222', 'andresfelipe@gmail.com', 'Rosales')");
+            statement.executeUpdate("INSERT INTO `cliente` (`Id_Usuario`, `Nombre_Cliente`, `Telefono_Cliente`, `Email_Cliente`, `Proyecto_Cotizar`) VALUES ('1234560', 'Ruben Esteban carvajal Andradre', '1061333352', 'rubenesteban@gmail.com', 'Rosales')");
             rst = statement.executeQuery("SELECT * FROM cliente");
             rst.next();
             do {
