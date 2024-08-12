@@ -1,11 +1,5 @@
 package conection_jdbc;
 
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
-
-
 /**
  *
  * @author Maricela Velasco
@@ -23,7 +17,8 @@ public class Conexion_JDBC {
     private static String password="";
     private static String url="jdbc:mysql://localhost:3306/mydb";    
    
-     public static Connection getConnection() {
+      // Método para obtener una conexión a la base de datos
+    public static Connection getConnection() {
         Connection connection = null;
         try {
             connection = DriverManager.getConnection(url, user, password);

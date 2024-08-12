@@ -16,7 +16,7 @@ public class Cliente {
     String emailCliente;
     String proyectoCotizar;
 
-    // Constructor, getters y setters
+    // Constructor
     public Cliente(int idUsuario, String nombreCliente, String telefonoCliente, String emailCliente, String proyectoCotizar) 
     {
         this.idUsuario = idUsuario;
