@@ -17,11 +17,11 @@ public class main {
     public static void main(String[] args) {
         OperacionesCRUD clienteDAO = new OperacionesCRUD();
 
-        // Crear e insertar un nuevo cliente
+        //insertar un nuevo cliente
         Cliente nuevoCliente = new Cliente(0,"Carlos Alberto Prueba", "3223456789", "carlosalbertoprueba@example.com", "Proyecto G");
         clienteDAO.insertarCliente(nuevoCliente);
 
-        // Se llama el Metodo que consulta todos los clientes
+        //consulta todos los clientes
        clienteDAO.obtenerTodosLosClientes();
        System.out.println("Lista de todos los clientes:");
     }
