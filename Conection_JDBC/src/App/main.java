@@ -10,7 +10,6 @@ package App;
  */
 
 import Interivalle.DAO.OperacionesCRUD;
-import conection_jdbc.Conexion_JDBC;
 import Interivalle.Model.Cliente;
 
 public class main {
@@ -19,14 +18,10 @@ public class main {
         OperacionesCRUD clienteDAO = new OperacionesCRUD();
 
         // Crear e insertar un nuevo cliente
-        Cliente nuevoCliente = new Cliente(1, "Juan Perez", "555-1234", "juan.perez@example.com", "Proyecto A");
+        Cliente nuevoCliente = new Cliente(1111111, "Juan Perez", "5551234312", "juan.perez@example.com", "Proyecto A");
         clienteDAO.insertarCliente(nuevoCliente);
 
-        // Consultar un cliente por su ID
-        Cliente clienteConsultado = clienteDAO.obtenerCliente(1);
-        if (clienteConsultado != null) {
-            System.out.println(clienteConsultado);
-        }
+       
     }
 }
  
