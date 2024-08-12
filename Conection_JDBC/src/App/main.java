@@ -18,10 +18,12 @@ public class main {
         OperacionesCRUD clienteDAO = new OperacionesCRUD();
 
         // Crear e insertar un nuevo cliente
-        Cliente nuevoCliente = new Cliente(1111111, "Juan Perez", "5551234312", "juan.perez@example.com", "Proyecto A");
+        Cliente nuevoCliente = new Cliente(0,"Carlos Alberto Prueba", "3223456789", "carlosalbertoprueba@example.com", "Proyecto G");
         clienteDAO.insertarCliente(nuevoCliente);
 
-       
+        // Se llama el Metodo que consulta todos los clientes
+       clienteDAO.obtenerTodosLosClientes();
+       System.out.println("Lista de todos los clientes:");
     }
 }
  

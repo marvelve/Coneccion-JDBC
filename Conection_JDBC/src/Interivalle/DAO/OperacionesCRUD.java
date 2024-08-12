@@ -17,6 +17,7 @@ import java.util.List;
 
 public class OperacionesCRUD {
 
+    //Metodo para insertar los datos de Clientes a la Base de datos por Medio de Insert REGRISTRO
     public void insertarCliente(Cliente cliente) {
         String query = "INSERT INTO cliente (Id_Usuario, Nombre_Cliente, Telefono_Cliente, Email_Cliente, Proyecto_Cotizar) VALUES (?, ?, ?, ?, ?)";
         try (Connection conexion = Conexion_JDBC.getConnection();
@@ -29,6 +30,23 @@ public class OperacionesCRUD {
             stmt.setString(5, cliente.getProyectoCotizar());
 
             stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    //Metodo para visualizar todo lo que esta en la tabla cliente CONSULTA
+    public void obtenerTodosLosClientes() {
+        String sql = "SELECT * FROM cliente";
+
+        try (Connection conexion = Conexion_JDBC.getConnection();
+             PreparedStatement stmt = conexion.prepareStatement(sql);
+             ResultSet rst = stmt.executeQuery()) 
+        {
+            rst.next();
+            do {
+              System.out.println(rst.getInt("Id_Usuario")+" | " +rst.getString("Nombre_Cliente")+" | " +rst.getString("Telefono_Cliente")+" | " +rst.getString("Email_Cliente")+" | " +rst.getString("Proyecto_Cotizar"));
+            }while (rst.next());
         } catch (SQLException e) {
             e.printStackTrace();
         }
