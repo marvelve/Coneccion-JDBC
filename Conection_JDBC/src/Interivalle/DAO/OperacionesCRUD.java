@@ -12,9 +12,6 @@ import java.sql.*;
 import Interivalle.Model.Cliente;
 import conection_jdbc.Conexion_JDBC;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class OperacionesCRUD {
 
     //Metodo para insertar los datos de Clientes a la Base de datos por Medio de Insert REGRISTRO
@@ -47,6 +44,29 @@ public class OperacionesCRUD {
             do {
               System.out.println(rst.getInt("Id_Usuario")+" | " +rst.getString("Nombre_Cliente")+" | " +rst.getString("Telefono_Cliente")+" | " +rst.getString("Email_Cliente")+" | " +rst.getString("Proyecto_Cotizar"));
             }while (rst.next());
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    // Método para actualizar un cliente
+    public void actualizarCliente(String Email_Cliente, String N_nombreCliente, String N_telefonoCliente, String N_proyectoCotizar) {
+        String sql = "UPDATE cliente SET Nombre_Cliente = ?, Telefono_Cliente = ?, Proyecto_Cotizar = ? WHERE Email_Cliente = ?";
+
+        try (Connection conexion = Conexion_JDBC.getConnection(); 
+             PreparedStatement stmt = conexion.prepareStatement(sql)) {
+             
+            stmt.setString(1, N_nombreCliente);
+            stmt.setString(2, N_telefonoCliente);
+            stmt.setString(3, N_proyectoCotizar);
+            stmt.setString(4, Email_Cliente);
+
+            int FilasActualizadas = stmt.executeUpdate();
+            if (FilasActualizadas > 0) {
+                System.out.println("Cliente actualizado exitosamente.");
+            } else {
+                System.out.println("Cliente no encontrado.");
+            }
         } catch (SQLException e) {
             e.printStackTrace();
         }

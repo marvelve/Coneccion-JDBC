@@ -19,11 +19,15 @@ public class main {
 
         //insertar un nuevo cliente
         Cliente nuevoCliente = new Cliente(0,"Carlos Alberto Prueba", "3223456789", "carlosalbertoprueba@example.com", "Proyecto G");
-        clienteDAO.insertarCliente(nuevoCliente);
+       // clienteDAO.insertarCliente(nuevoCliente);
 
         //consulta todos los clientes
        clienteDAO.obtenerTodosLosClientes();
        System.out.println("Lista de todos los clientes:");
+       
+       clienteDAO.actualizarCliente("pepito.perez@example.com", "Pepito pere", "315234567", "prueba");
+       
+       clienteDAO.obtenerTodosLosClientes();
     }
 }
  
