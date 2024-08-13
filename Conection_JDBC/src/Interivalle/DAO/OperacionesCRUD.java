@@ -3,7 +3,6 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Interivalle.DAO;
-
 /**
  *
  * @author Maricela Velasco
@@ -49,7 +48,7 @@ public class OperacionesCRUD {
         }
     }
     
-    // Método para actualizar un cliente
+    // Método para actualizar un cliente busqueda por Email
     public void actualizarCliente(String Email_Cliente, String N_nombreCliente, String N_telefonoCliente, String N_proyectoCotizar) {
         String sql = "UPDATE cliente SET Nombre_Cliente = ?, Telefono_Cliente = ?, Proyecto_Cotizar = ? WHERE Email_Cliente = ?";
 
@@ -67,6 +66,19 @@ public class OperacionesCRUD {
             } else {
                 System.out.println("Cliente no encontrado.");
             }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+    
+    //Metodo para eliminar un Cliente por email
+    public void borrarCliente(String Email_Cliente) {
+        String query = "DELETE FROM cliente WHERE Email_Cliente = ?";
+        try (Connection conexion = Conexion_JDBC.getConnection();
+             PreparedStatement stmt = conexion.prepareStatement(query)) {
+
+            stmt.setString(1, Email_Cliente);
+            stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }

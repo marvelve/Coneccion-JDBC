@@ -25,8 +25,9 @@ public class main {
        clienteDAO.obtenerTodosLosClientes();
        System.out.println("Lista de todos los clientes:");
        
-       clienteDAO.actualizarCliente("pepito.perez@example.com", "Pepito pere", "315234567", "prueba");
+       //clienteDAO.actualizarCliente("pepito.perez@example.com", "Pepito pere", "315234567", "prueba");
        
+       clienteDAO.borrarCliente("pepito.perez@example.com");
        clienteDAO.obtenerTodosLosClientes();
     }
 }
