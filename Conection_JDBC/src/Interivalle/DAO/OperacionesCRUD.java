@@ -9,6 +9,7 @@ package Interivalle.DAO;
  */
 import java.sql.*;
 import Interivalle.Model.Cliente;
+import Interivalle.Model.Servicio_ObraBlanca;
 import conection_jdbc.Conexion_JDBC;
 
 public class OperacionesCRUD {
@@ -79,9 +80,30 @@ public class OperacionesCRUD {
 
             stmt.setString(1, Email_Cliente);
             stmt.executeUpdate();
+            System.out.println("Registro Borrado:");
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
     
+     public void insertarServicioObraBlanca(Servicio_ObraBlanca obra_blanca) {
+        String query = "INSERT INTO obra_blanca (Id_Actividad, area_privada_apto, cantidad_panel, cantidad_poyo, medida_zona_oficio, medida_salpicadero_cocina,medida_cocina,medida_bano) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        try (Connection conexion = Conexion_JDBC.getConnection();
+            PreparedStatement stmt = conexion.prepareStatement(query)) {
+
+            stmt.setInt (1, obra_blanca.getId_Actividad());
+            stmt.setDouble(2, obra_blanca.getAreaPrivadaApto());
+            stmt.setInt (3, obra_blanca.getCantidadPanel());
+            stmt.setInt(4, obra_blanca.getCantidadPoyo());
+            stmt.setDouble(5, obra_blanca.getMedidaZonaOficio());
+            stmt.setDouble(6, obra_blanca.getMedidaSalpicaderoCocina());
+            stmt.setDouble(7, obra_blanca.getMedidaCocina());
+            stmt.setDouble(8, obra_blanca.getMedidaBanos());
+
+            stmt.executeUpdate();
+            System.out.println("Registro de ObraBlanca insertado exitosamente.");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

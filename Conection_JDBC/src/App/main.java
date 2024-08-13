@@ -11,6 +11,7 @@ package App;
 
 import Interivalle.DAO.OperacionesCRUD;
 import Interivalle.Model.Cliente;
+import Interivalle.Model.Servicio_ObraBlanca;
 
 public class main {
     
@@ -26,9 +27,10 @@ public class main {
        System.out.println("Lista de todos los clientes:");
        
        //clienteDAO.actualizarCliente("pepito.perez@example.com", "Pepito pere", "315234567", "prueba");
-       
-       clienteDAO.borrarCliente("pepito.perez@example.com");
-       clienteDAO.obtenerTodosLosClientes();
+      // clienteDAO.borrarCliente("marinapantojaxx@example.com");
+     
+      Servicio_ObraBlanca nuevaObraBlanca= new Servicio_ObraBlanca(0,45.5, 2, 3, 12.0, 8.0, 15.0, 12.0);
+      clienteDAO.insertarServicioObraBlanca(nuevaObraBlanca);
     }
 }
  
